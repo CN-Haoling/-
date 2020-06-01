@@ -1,0 +1,87 @@
+<!--miniprogram/pages/Teams/TeamSearch.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">按id查询</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">按游戏匹配</view>
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">个人中心</view>
+</view>
+
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <swiper-item>
+        <view class='container'>
+  <form bindsubmit='comfirmid'>
+    
+  <view class='input-container'>
+      <label>id：</label>
+      <input data-value='{{iden}}' name="iden" value='{{iden}}'></input>
+    </view>
+
+    <view class='comfirmid'>
+      <button form-type='submit'>查询</button>
+    </view>
+
+  </form>
+</view>
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">队名</view>
+    <view class="th">游戏</view>
+    <view class="th ">队员名单</view>
+    <view class="th ">操作</view>
+  </view>
+  
+  <block wx:for="{{teams}}" wx:key="{{code}}">
+    <view class="tr" >
+    <view class="td">{{item.name}}</view>
+    <view class="td">{{item.game}}</view>
+     <view class="td">{{item.MateName}}</view>
+     <button class='del' data-id='{{item._id}}' bindtap='onJoin'>入队</button>
+  
+
+    </view>
+    </block>
+    </view>
+    </swiper-item>
+    <swiper-item>
+        <view class='container'>
+  <form bindsubmit='comfirmGame'>
+    
+  <view class='input-container'>
+      <label>游戏名：</label>
+      
+      <input data-value='{{gameen}}' name="gameen" value='{{gameen}}'></input>
+    </view>
+
+    <view class='comfirmGame'>
+      <button form-type='submit'>查询</button>
+    </view>
+
+  </form>
+</view>
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">队名</view>
+    <view class="th">游戏</view>
+    <view class="th ">队员名单</view>
+    <view class="th ">操作</view>
+  </view>
+  
+  <block wx:for="{{teams}}" wx:key="{{code}}">
+    <view class="tr" >
+    <view class="td">{{item.name}}</view>
+    <view class="td">{{item.game}}</view>
+     <view class="td">{{item.MateName.length}}</view>
+     <button class='del' data-id='{{item._id}}' bindtap='onJoin'>入队</button>
+  
+
+    </view>
+    </block>
+    </view>
+    </swiper-item>
+    <swiper-item>
+        <view>个人中心</view>
+    </swiper-item>
+</swiper>
+
+

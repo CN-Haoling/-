@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+
+  </view>
+
+
+
+
+
+  <!-- 即时通信 -->
+  <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>聊天室</text>
+    </navigator>
+  </view>
+
+<view class="uploader">
+    <navigator url="../Teams/Teams" open-type="navigate" class="uploader-text">
+      <text>队伍大厅</text>
+    </navigator>
+  </view>
+<view class="uploader">
+    <navigator url="../Teams/myTeam" open-type="navigate" class="uploader-text">
+      <text>我的队伍</text>
+    </navigator>
+  </view>
+  <view class="uploader">
+    <navigator url="../Teams/TeamSearch" open-type="navigate" class="uploader-text">
+      <text>查询队伍</text>
+    </navigator>
+  </view>
+
+
+</view>

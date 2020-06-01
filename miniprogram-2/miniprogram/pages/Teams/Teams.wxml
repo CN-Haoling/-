@@ -1,0 +1,29 @@
+<!--miniprogram/pages/Teams.wxml-->
+<view wx:if="{{teams}}" class='container'>
+  <view class='title'>
+    <text>队伍大厅</text>
+  </view>
+  <view class='label'>
+    <text>队名 游戏 id</text>
+  
+    <text>操作</text>
+  </view>
+  <block wx:for="{{teams}}" >
+    <view class='content'>
+      <text>{{item.name}}</text>
+      <text>{{item.game}}</text>
+      <text>{{item.teamId}}</text>
+      <button class='del' data-id='{{item._id}}' bindtap='onDel'>删除</button>
+      <button class='update' data-id='{{item._id}}' bindtap='onUpdate'>修改</button>
+      <button class='join' data-id='{{item._id}}' bindtap='onJoin'>加入</button>
+      
+    </view>
+  </block>
+</view>
+<view wx:else="{{teams}}" class='none'>
+  <text>暂时没有队伍！</text>
+</view>
+<view class='add'>
+  <button bindtap='goSet'>新建</button>
+   <button bindtap='goget'>测试</button>
+</view>
